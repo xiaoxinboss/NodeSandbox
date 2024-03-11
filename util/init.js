@@ -101,7 +101,7 @@ my_api.newRadioNodeList = function (object) {
             return delete target[p];
         },
         defineProperty(target, p, prop) {
-            cbb_wf.console.log("[*]  请注意, HtmlCollection属性被定义了. key =>", p, ", prop =>", prop);
+            cbb_wf.console.log("[*]  请注意, RadioNodeList属性被定义了. key =>", p, ", prop =>", prop);
             if (!isNaN(Number(p) && (p[0] !== "0" || p.length === 1))) {
                 let err = new my_api.ctr.TypeError(`Failed to set an indexed property on '${type}': Index property setter is not supported.`);
                 let stack = err.stack.split("\n");
