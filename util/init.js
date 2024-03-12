@@ -16,7 +16,26 @@ my_api.memory = {
 
 // 存放构造函数
 my_api.ctr = {
-    
+    URL: function URL() {
+        if (cbb_wf.is_log) {
+            cbb_wf.console.log("[*]  new 构造函数 -> URL, ", "arguments => ", arguments);
+        }
+        if (!new.target) {
+            let err = new my_api.ctr.TypeError("Failed to construct 'URL': Please use the 'new' operator, this DOM object constructor cannot be called as a function.");
+            let stack = err.stack.split("\n");
+            stack.splice(1, 1);
+            err.stack = stack.join("\n");
+            throw err
+        }
+        let usp = {};
+        Object.setPrototypeOf(usp, URLSearchParams.prototype);
+        cbb_wf.initValue(usp, { "size": 0 });
+        cbb_wf.initValue(this, {
+            "searchParams": usp,
+            "dom_element": new my_api.dom_window.URL(...arguments),
+        });
+        return this;
+    },
 };
 my_api.ctr.TypeError = TypeError;
 my_api.ctr.Promise = Promise;

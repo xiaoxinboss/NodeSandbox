@@ -77,6 +77,20 @@ cbb_wf = {
     setNative: function (func, func_name) {
         map.set(func, `function ${func_name || func.name || ''}() { [native code] }`);
     },
+    event_get_isTrusted(){
+        // 非法调用
+        let r = cbb_wf.checkIllegal(this, "Option");
+        let ctx = r[0];
+        if (r[1]) {
+            // 报错
+            throw cbb_wf.newError.call(ctx, "Illegal invocation");
+        }
+        let result = cbb_wf.getValue(this, "isTrusted");
+        if (cbb_wf.is_log) {
+            cbb_wf.console.log("[*]  event_get_isTrusted, this =>", this + '', ", result =>", result + '');
+        }
+        return result;
+    },
 
 
     // 是否打印所有的信息
@@ -583,21 +597,25 @@ global.ctr = {};
 
 // cbb_wf.console_log = function(){} // 置空这个vm所有环境里的console log/warn/  躲避检测
 
-global.static_env_code = ""
-global.staticEnvPath = fs.readdirSync('./static_env');
-staticEnvPath.map((item) => {
-    static_env_code += fs.readFileSync(`./static_env/${item}`) + '\r\n';
-});
-
-
-new Function(static_env_code).call(cbb_wf);
-
-let init_code = fs.readFileSync("./util/init.js");
+!(function(){
+    global.static_env_code = "";
+    global.staticEnvPath = fs.readdirSync('./static_env');
+    staticEnvPath.map((item) => {
+        static_env_code += fs.readFileSync(`./static_env/${item}`) + '\r\n';
+    });
+    global.staticEnvPath = fs.readdirSync('./env'); // 实现了实际功能的函数, 对dump下来的函数进行覆盖
+    staticEnvPath.map((item) => {
+        static_env_code += fs.readFileSync(`./env/${item}`) + '\r\n';
+    });
+    new Function(static_env_code).call(cbb_wf);
+    global.init_code = fs.readFileSync("./util/init.js") + '';
+})
 
 
 function test() {
+    let work_code = fs.readFileSync("./test/test.js");
     let jsdom = new JSDOM("")
-    let script = new vm.Script(init_code);
+    let script = new vm.Script(init_code + '\n' + work_code);
 
     script.runInContext(vm.createContext({
         cbb_wf: cbb_wf,
