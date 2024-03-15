@@ -7,7 +7,7 @@ this.location_valueOf = function () {
     }
     let result;
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_valueOf, this =>", this + '', ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
+        cbb_wf.console.log("[*]  location_valueOf, this =>", toString.call(this), ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
     }
     return result;
 }
@@ -20,7 +20,7 @@ this.location_get_ancestorOrigins = function () {
     }
     let result = cbb_wf.getValue(this, "ancestorOrigins");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_ancestorOrigins, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_ancestorOrigins, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -33,7 +33,7 @@ this.location_get_href = function () {
     }
     let result = cbb_wf.getValue(this, "href");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_href, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_href, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -46,7 +46,7 @@ this.location_set_href = function (val) {
     }
     let result = cbb_wf.setValue(this, "href", val);
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_set_href, this =>", this + '', ", val => ", val + '');
+        cbb_wf.console.log("[*]  location_set_href, this =>", toString.call(this), ", val => ", val + '');
     }
     return result;
 }
@@ -59,7 +59,7 @@ this.location_get_origin = function () {
     }
     let result = cbb_wf.getValue(this, "origin");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_origin, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_origin, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -72,7 +72,7 @@ this.location_get_protocol = function () {
     }
     let result = cbb_wf.getValue(this, "protocol");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_protocol, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_protocol, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -85,7 +85,7 @@ this.location_set_protocol = function (val) {
     }
     let result = cbb_wf.setValue(this, "protocol", val);
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_set_protocol, this =>", this + '', ", val => ", val + '');
+        cbb_wf.console.log("[*]  location_set_protocol, this =>", toString.call(this), ", val => ", val + '');
     }
     return result;
 }
@@ -98,7 +98,7 @@ this.location_get_host = function () {
     }
     let result = cbb_wf.getValue(this, "host");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_host, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_host, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -111,7 +111,7 @@ this.location_set_host = function (val) {
     }
     let result = cbb_wf.setValue(this, "host", val);
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_set_host, this =>", this + '', ", val => ", val + '');
+        cbb_wf.console.log("[*]  location_set_host, this =>", toString.call(this), ", val => ", val + '');
     }
     return result;
 }
@@ -124,7 +124,7 @@ this.location_get_hostname = function () {
     }
     let result = cbb_wf.getValue(this, "hostname");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_hostname, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_hostname, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -137,7 +137,7 @@ this.location_set_hostname = function (val) {
     }
     let result = cbb_wf.setValue(this, "hostname", val);
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_set_hostname, this =>", this + '', ", val => ", val + '');
+        cbb_wf.console.log("[*]  location_set_hostname, this =>", toString.call(this), ", val => ", val + '');
     }
     return result;
 }
@@ -150,7 +150,7 @@ this.location_get_port = function () {
     }
     let result = cbb_wf.getValue(this, "port");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_port, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_port, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -163,7 +163,7 @@ this.location_set_port = function (val) {
     }
     let result = cbb_wf.setValue(this, "port", val);
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_set_port, this =>", this + '', ", val => ", val + '');
+        cbb_wf.console.log("[*]  location_set_port, this =>", toString.call(this), ", val => ", val + '');
     }
     return result;
 }
@@ -176,7 +176,7 @@ this.location_get_pathname = function () {
     }
     let result = cbb_wf.getValue(this, "pathname");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_pathname, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_pathname, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -189,7 +189,7 @@ this.location_set_pathname = function (val) {
     }
     let result = cbb_wf.setValue(this, "pathname", val);
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_set_pathname, this =>", this + '', ", val => ", val + '');
+        cbb_wf.console.log("[*]  location_set_pathname, this =>", toString.call(this), ", val => ", val + '');
     }
     return result;
 }
@@ -202,7 +202,7 @@ this.location_get_search = function () {
     }
     let result = cbb_wf.getValue(this, "search");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_search, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_search, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -215,7 +215,7 @@ this.location_set_search = function (val) {
     }
     let result = cbb_wf.setValue(this, "search", val);
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_set_search, this =>", this + '', ", val => ", val + '');
+        cbb_wf.console.log("[*]  location_set_search, this =>", toString.call(this), ", val => ", val + '');
     }
     return result;
 }
@@ -228,7 +228,7 @@ this.location_get_hash = function () {
     }
     let result = cbb_wf.getValue(this, "hash");
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_get_hash, this =>", this + '', ", result => ", result + '');
+        cbb_wf.console.log("[*]  location_get_hash, this =>", toString.call(this), ", result => ", result + '');
     }
     return result;
 }
@@ -241,7 +241,7 @@ this.location_set_hash = function (val) {
     }
     let result = cbb_wf.setValue(this, "hash", val);
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_set_hash, this =>", this + '', ", val => ", val + '');
+        cbb_wf.console.log("[*]  location_set_hash, this =>", toString.call(this), ", val => ", val + '');
     }
     return result;
 }
@@ -254,7 +254,7 @@ this.location_assign = function () {
     }
     let result;
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_assign, this =>", this + '', ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
+        cbb_wf.console.log("[*]  location_assign, this =>", toString.call(this), ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
     }
     return result;
 }
@@ -267,7 +267,7 @@ this.location_reload = function () {
     }
     let result;
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_reload, this =>", this + '', ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
+        cbb_wf.console.log("[*]  location_reload, this =>", toString.call(this), ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
     }
     return result;
 }
@@ -280,7 +280,7 @@ this.location_replace = function () {
     }
     let result;
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_replace, this =>", this + '', ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
+        cbb_wf.console.log("[*]  location_replace, this =>", toString.call(this), ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
     }
     return result;
 }
@@ -293,7 +293,7 @@ this.location_toString = function () {
     }
     let result;
     if (cbb_wf.is_log) {
-        cbb_wf.console.log("[*]  location_toString, this =>", this + '', ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
+        cbb_wf.console.log("[*]  location_toString, this =>", toString.call(this), ", arguments => ", arguments, ", result => ", result + '', ".暂未实现");
     }
     return result;
 }

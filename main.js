@@ -46,12 +46,12 @@ cbb_wf = {
         return;
     },
     checkIllegal(obj, name) {
-        if (!map.has(obj)) {
-            // 说明这个对象不是正常创建得到的对象. 或者自己傻逼漏了
-            return [null, true];
-        }
         // 区分是哪个上下文, iframe
         let ctx = my_api.getContext(obj);
+        if (!map.has(obj)) {
+            // 说明这个对象不是正常创建得到的对象. 或者自己傻逼漏了
+            return [ctx, true];
+        }
         // ctx是obj所在上下文的this -> window
         let proto = map.get(obj).proto;
         // 20ms
@@ -591,13 +591,13 @@ global.ctr = {};
     this.SpeechSynthesisEvent.prototype.__proto__ = this.Event.prototype; this.SpeechSynthesisUtterance.__proto__ = this.EventTarget;
     this.SpeechSynthesisUtterance.prototype.__proto__ = this.EventTarget.prototype; this.VisibilityStateEntry.__proto__ = this.PerformanceEntry;
     this.VisibilityStateEntry.prototype.__proto__ = this.PerformanceEntry.prototype;
-}).call(global.ctr)
+}).call(global.ctr);
 
 
 
 // cbb_wf.console_log = function(){} // 置空这个vm所有环境里的console log/warn/  躲避检测
 
-!(function(){
+(function(){
     global.static_env_code = "";
     global.staticEnvPath = fs.readdirSync('./static_env');
     staticEnvPath.map((item) => {
@@ -609,7 +609,7 @@ global.ctr = {};
     });
     new Function(static_env_code).call(cbb_wf);
     global.init_code = fs.readFileSync("./util/init.js") + '';
-})
+})()
 
 
 function test() {
@@ -623,4 +623,8 @@ function test() {
     }));
 }
 
+test();
+my_api.clearMemory()
+test()
+my_api.clearMemory()
 test()

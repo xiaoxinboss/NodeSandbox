@@ -18,7 +18,8 @@ this.document_set_location = function (val) {
         // 报错
         throw cbb_wf.newError.call(ctx, "Illegal invocation");
     }
-    let result = cbb_wf.setValue(this, "location", val);
+    // location.href = val
+    // let result = cbb_wf.setValue(this, "location", val);
     if (cbb_wf.is_log) {
         cbb_wf.console.log("[*]  document_set_location, this =>", this + '', ", val => ", val + '');
     }

@@ -309,9 +309,6 @@ my_api.getWrapperObject = function (dom_element, prototype_name) {
     Object.setPrototypeOf(result, my_api.ctr[prototype_name].prototype);
     dom_element["wrapper_object"] = result;
     cbb_wf.initValue(result, value);
-
-    
-
     return result;
 }
 
@@ -327,6 +324,7 @@ my_api.proxyWindowProperties = function () {
             } else {
                 result = my_api.dom_window[p];
                 if (result && result[Symbol.toStringTag] == "HTMLFormElement") {
+                    result = my_api.getWrapperObject(result)
 
                 } else result = Reflect.get(target, p, receiver);
             }
